@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.success {
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+
+.userOperation {
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: center;
+}
+
+.userOperation .index {
+	margin-right: 50px;
+}

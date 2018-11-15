@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PraiseMapper">
+    <insert id="addPraise" parameterType="cn.com.shoppingmall.relate.Praise">
+    	insert into praise (userId , goodsId) values (#{userId} , #{goodsId})
+    </insert>
+    <delete id="cancelPraise" parameterType="cn.com.shoppingmall.relate.Praise">
+    	delete from praise where userId = #{userId} and goodsId = #{goodsId}
+    </delete>
+    <select id="findPraise" parameterType="cn.com.shoppingmall.relate.Praise" resultType="cn.com.shoppingmall.relate.Praise">
+    	select * from praise where userId = #{userId} and goodsId = #{goodsId}
+    </select>
+</mapper>

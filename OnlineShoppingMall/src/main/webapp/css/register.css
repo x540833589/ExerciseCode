@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+h2 {
+	margin-left: 45.6%;
+	color: red;
+}
+
+label {
+	float: left;
+	width: 42em;
+	margin-right: 1em;
+	text-align: right;
+}
+
+h3 {
+	align-self: center;
+	color: red;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper resource="cn/com/shoppingmall/domain/UserMapper.xml"/>
+		<mapper resource="cn/com/shoppingmall/domain/GoodsMapper.xml"/>
+		<mapper resource="cn/com/shoppingmall/domain/RemarkMapper.xml"/>
+		<mapper resource="cn/com/shoppingmall/domain/OrderMapper.xml"/>
+		<mapper resource="cn/com/shoppingmall/relate/PraiseMapper.xml"/>
+		<mapper resource="cn/com/shoppingmall/relate/OrderItemMapper.xml"/>
+	</mappers>
+</configuration>

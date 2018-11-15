@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderItemMapper">
+    <insert id="addOrderItem" parameterType="cn.com.shoppingmall.relate.OrderItem">
+    	insert into OrderItem(orderId , userId , goodsId , goodsName , unitPrice , amount , totalPrice) 
+    				values (#{orderId} , #{userId} , #{goodsId} , #{goodsName} , #{unitPrice} , #{amount} , #{totalPrice})
+    </insert>
+    <select id="getPreviousOrderId" resultType="java.lang.Integer">
+    	select max(orderId) from userOrder
+    </select>
+    <select id="getOrderItemListByUserId" parameterType="java.lang.Integer" resultType="cn.com.shoppingmall.relate.OrderItem">
+    	select * from orderItem where orderId in (select orderId from userOrder where userId = #{userId}) order by createTime desc
+    </select>
+</mapper>

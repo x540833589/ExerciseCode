@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+h2 {
+	text-align: center;
+	color: black;
+}
+
+h3 {
+	text-align: center;
+	color: red;
+}
+
+label {
+	float: left;
+	width: 41.6em;
+	margin-right: 1em;
+	text-align: right;
+}
+
+input {
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+}
+
+.sub {
+	margin-left: 51.1em;
+}
+
+.reg {
+	font-weight: bold;
+	color: red;
+}
+
+.gotoRes {
+	margin-left: 45.4%;
+}

@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+a {
+	font-weight: bold;
+	color: red;
+}
+
+h2 {
+	align-self: center;
+	font-weight: bold;
+	color: red;
+}
+
+p {
+	font-size: medium;
+	color: red;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.goodsImage {
+	height: 292px;
+	width: 100%;
+	float: left;
+	padding-left: 35px;
+}
+
+.goodsName {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: red;
+	font-weight: bold;
+}
+
+.goodsPrice {
+	float: left;
+	font-weight: bold;
+	color: red;
+	margin-left: 10px;
+}
+
+.goodsCredits {
+	float: left;
+	padding-left: 21.5%;
+}
+
+.goodsManufacturer {
+	margin-left: 10px;
+}
+
+.goodsProductDate {
+	padding-left: 3.5%;
+	color: red;
+}
+
+.dayCountOfGoodQuality {
+	margin-left: 3.5%;
+}
+
+.zw {
+	margin-left: 8.3%;
+}
+
+.goodsInfo1 {
+	padding-left: 10px;
+}
+
+.goodsInfo2 {
+	padding-left: 100px;
+}
+
+.goodsInfo3 {
+	padding-left: 50px;
+}
+
+.addPraise {
+	padding-left: 25px;
+	color: red;
+}
+
+.cancelPraise {
+	padding-left: 10px;
+	color: red;
+}
+
+.goodsRemark {
+	padding-left: 25px;
+	color: red;
+}
+
+.numberButton {
+	border-bottom-left-radius: 3px;
+	border-style: groove;
+	width: 50px;
+}
+
+.goodsAmount{
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	text-align: center;
+}
+
+.goodsRemaining {
+	margin-left: 3%;
+}
+
+.addToCart {
+	margin-left: 2.1%;
+	color: red;
+}
+
+.title {
+	font-weight: bold;
+	text-align: center;
+}
+
+.leftt {
+	float: left;
+	margin-left: 30px;
+}
+
+.rightt {
+	font-weight: bold;
+	float: right;
+	margin-right: 30px;
+}
+
+.lefttt {
+	float: left;
+	height: 340px;
+	width: 18%;
+}
+
+.righttt {
+	float: left;
+	margin-left: 85px;
+	height: 340px;
+	width: 75%;
+	font-size: large;
+}
+
+.Index1{
+	font-size: medium;
+	font-weight: bold;
+	color: red;
+	margin-left: 35px;
+}
+
+.Index2{
+	font-size: medium;
+	font-weight: bold;
+	color: red;
+}
+
+.nickname {
+	margin-left: 30px;
+	color: red;
+	font-size: large;
+	font-weight: bold;
+}
+
+.remarkContent {
+	display: block;
+	float: left;
+	font-size: large;
+	margin-left: 82px;
+	margin-right: 50px;
+}
+
+.createTime {
+	float: right;
+	margin-right: 35px;
+	font-size: large;
+	color: red;
+}
+
+.pageIndexes {
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.remarkPageIndex {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: red;
+	font-weight: bold;
+}
+
+.des {
+	padding-left: 20px;
+	padding-right: 20px;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+    <select id="getUserByLoginForm" resultType="cn.com.shoppingmall.domain.User" parameterType="cn.com.shoppingmall.form.LoginForm">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+    <select id="getUserByUserName" parameterType="java.lang.String" resultType="cn.com.shoppingmall.domain.User">
+        select * from user where username = #{username}
+    </select>
+    <select id="getAllUsername" resultType="java.lang.String">
+    	select username from user
+    </select>
+    <insert id="register" parameterType="cn.com.shoppingmall.form.RegisterForm">
+        insert into user
+        (username, password, nickname, trueName, sex, dateOfBirth, address, email, phoneNumber, IDNumber) values
+        (#{username}, #{password}, #{nickname}, #{trueName}, #{sex}, #{dateOfBirth}, #{address}, #{email}, #{phoneNumber}, #{IDNumber})
+    </insert>
+    <update id="updateUserInfo" parameterType="cn.com.shoppingmall.relate.UpdateInfo">
+    	update User set wealthIntegral = wealthIntegral + #{wealthIntegral} where userId = #{userId}
+    </update>
+    <update id="editPersonalAccount" parameterType="cn.com.shoppingmall.form.RegisterForm">
+		update user
+        <set>
+            <if test="password != null">password = #{password},</if>
+            <if test="nickname != null">nickname = #{nickname},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="phoneNumber != null">phoneNumber = #{phoneNumber},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="dateOfBirth != null">dateOfBirth = #{dateOfBirth},</if>
+            <if test="trueName != null">trueName = #{trueName},</if>
+            <if test="IDNumber != null">IDNumber = #{IDNumber},</if>
+            <if test="address != null">address = #{address},</if>
+        </set>
+        where username = #{username}
+	</update>
+</mapper>

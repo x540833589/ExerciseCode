@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+label {
+	float: left;
+	width: 114px;
+	margin-right: 8px;
+	text-align: right;
+}
+
+.pageIndex {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: red;
+	font-weight: bold;
+}
+
+.pageIndexes {
+	text-align: center;
+	display: block;
+}
+
+.prePageInfo {
+	color: red;
+	font-weight: bold;
+}
+
+.rightt {
+	float: right;
+	color: red;
+	font-weight: bold;
+	margin-right: 30px;
+}
+
+.lefttt {
+	font-size: large;
+	float: left;
+	height: 115px;
+	width: 15%;
+}
+
+.righttt {
+	float: left;
+	margin-left: 10px;
+	height: 115px;
+	width: 83%;
+	font-size: large;
+}
+
+.title {
+	margin-left: 50px;
+}
+
+.titleFont {
+	font-size: x-large;
+}
+
+.goodsAmount{
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	text-align: center;
+  	width: 50px;
+}
+.nickname {
+	margin-left: 30px;
+	color: red;
+	font-size: large;
+	font-weight: bold;
+}
+
+.remarkContent {
+	display: block;
+	float: left;
+	font-size: large;
+	margin-left: 85px;
+	margin-right: 50px;
+}
+
+.createTime {
+	float: right;
+	margin-right: 35px;
+	font-size: large;
+	color: red;
+}
+
+.Id {
+	display: inline;
+	float: left;
+	padding-left: 50px;
+	padding-top: 25px;
+	color: red;
+}
+
+.image {
+	padding-left: 52px;
+	padding-right: 22px; 
+	height: 86.7%;
+	width: 50%;
+}
+
+.name {
+	color: black;
+	margin-left: 0px;
+	font-weight: bold;
+}
+
+.unitPrice {
+	color: black;
+	font-weight: bold;
+	margin-left: 580px;
+}
+
+.amount {
+	color: black;
+	font-weight: bold;
+	margin-left: 30px;
+}
+
+.deliverStatus {
+	padding-left: 40px;
+}
+
+.itemTotalPrice {
+	color: red;
+	font-weight: bold;
+	padding-left: 60px;
+}
+
+.deleteGoods {
+	margin-right: 20px;
+}
+
+.totalPrice {
+	font-size: x-large;
+	font-weight: bold;
+	float: right;
+	margin-right: 150px;
+	color: red;
+}
+
+.submitt {
+	padding-right: 30px;
+	color: red;
+	font-weight: bold;
+}
+
+.orderInfo {
+	float: right;
+	padding-right: 80px;
+	font-size: large;
+	font-weight: bold;
+	color: red;
+}
+
+.ensureOrderInfo {
+	text-align: left;
+	margin-left: 50px;
+	font-weight: bold;
+	font-size: large;
+	color: red;
+}
+
+.userInfo {
+	float: left;
+}
+
+.OK {
+	margin-left: 122px;
+}

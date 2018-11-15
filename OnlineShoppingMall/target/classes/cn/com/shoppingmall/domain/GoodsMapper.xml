@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsMapper">
+    <select id="getSpecifiedPageGoods" parameterType="cn.com.shoppingmall.relate.PageInfo" resultType="cn.com.shoppingmall.domain.Goods">
+    	select * from Goods limit #{recordStartIndex} , #{pageRecordAmount}
+    </select>
+    <select id="getGoodsByCategory" parameterType="java.lang.String" resultType="cn.com.shoppingmall.domain.Goods">
+    	select * from Goods where category = #{category}
+    </select>
+    <insert id="addNewGoods" parameterType="cn.com.shoppingmall.domain.Goods">
+    	insert into Goods
+    	(name , category , description , goodsPictureURL , price , manufacturer , dateOfProduction , numberOfRemaining , dayCountOfGoodQuality) values
+    	(#{name} , #{category} , #{description} , #{goodsPictureURL} , #{price} , #{manufacturer} , #{dateOfProduction} , #{numberOfRemaining} , #{dayCountOfGoodQuality})
+    </insert>
+    <select id="getAllGoodsAmount" resultType="java.lang.Integer">
+    	select count(*) from Goods
+    </select>
+    <select id="getGoodsByGoodsId" parameterType="java.lang.Integer" resultType="cn.com.shoppingmall.domain.Goods">
+    	select * from Goods where goodsId = #{goodsId}
+    </select>
+    <update id="addPraise" parameterType="java.lang.Integer">
+    	update Goods set pointOfPraise = pointOfPraise + 1 where goodsId = #{goodsId}
+    </update>
+    <update id="cancelPraise" parameterType="java.lang.Integer">
+    	update Goods set pointOfPraise = pointOfPraise - 1 where goodsId = #{goodsId}
+    </update>
+    <update id="updateGoodsInfo" parameterType="cn.com.shoppingmall.relate.UpdateInfo">
+    	update Goods set numberOfKnockdown = numberOfKnockdown + 1 ,
+    					 numberOfSales = numberOfSales + #{amount} ,
+    					 numberOfRemaining = numberOfRemaining - #{amount}
+    					 where goodsId = #{goodsId}
+    </update>
+    <update id="updateNumberOfRemark" parameterType="java.lang.Integer">
+    	update Goods set numberOfRemarked = numberOfRemarked + 1 where goodsId = #{goodsId}
+    </update>
+</mapper>

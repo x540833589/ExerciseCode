@@ -1,0 +1,115 @@
+@charset "UTF-8";
+a {
+	font-weight: bold;
+	color: red;
+}
+
+h2 {
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.goodsImage {
+	margin-left: 30px;
+	height: 145.6px;
+	width: 150px;
+}
+
+.title {
+	font-weight: bold;
+	text-align: center;
+}
+
+.leftt {
+	font-size: large;
+	float: left;
+	margin-left: 30px;
+}
+
+.lefttt {
+	float: left;
+	height: 160px;
+	width: 14%;
+}
+
+.righttt {
+	float: left;
+	height: 160px;
+	width: 75%;
+	font-size: large;
+}
+
+.rightt {
+	font-size: large;
+	float: right;
+	margin-right: 25px;
+}
+
+.goodsName {
+	margin-left: 20px;
+	color: red;
+	font-weight: bold;
+	font-size: large;
+}
+
+.unitPrice {
+	float: right;
+	margin-top: 4px;
+	margin-right: 5.5%;
+	font-weight: bold;
+	color: red;
+}
+
+.pageIndex {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: red;
+	font-weight: bold;
+}
+
+.pageIndexes {
+	text-align: center;
+	display: block;
+}
+
+.goodsDescription {
+	margin-left: 20px;
+    width: 980px;  /*必须设置宽度*/
+    overflow: hidden;  /*溢出隐藏*/
+    text-overflow: ellipsis; /*以省略号...显示*/
+    white-space: nowrap;  /*强制不换行*/
+    font-size: large;
+}
+
+.addToCart {
+	float: right;
+	font-weight: bold;
+	font-size: large;
+	color: red;
+	margin-right: 0px;
+}
+
+.goodsInfo {
+	margin-left: 20px;
+	font-weight: bold;
+	color: red;
+}
