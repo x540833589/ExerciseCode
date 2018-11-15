@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper resource="cn/com/oc/domain/DepartmentMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/StaffMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/LoginMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/QueryStaffMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/StructureMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/PositionMapper.xml"/>
+		<mapper resource="cn/com/oc/domain/DepartmentPositionMapper.xml"/>
+	</mappers>
+	
+</configuration>

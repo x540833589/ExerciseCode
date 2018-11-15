@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QueryStaffMapper">
+	<select id="allStaffDetails" parameterType="cn.com.oc.dto.QueryInfo" resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.isActive = 1<!-- AND staff.no NOT LIKE '9___' -->
+		<if test="deptID != null and deptID != '' and deptID !='请选择'">
+			and department.deptID LIKE '${deptID}'
+		</if>
+		<if test="position_CN != null and position_CN != '' and position_CN !='请选择'">
+			and position.position_CN = '${position_CN}'
+		</if>
+		<if test="name_CN != null and name_CN != ''">
+			and staff.name_CN LIKE '%${name_CN}%' group by staff.name_CN
+		</if>
+		<if test="name_EN != null and name_EN != ''">
+			and staff.name_EN LIKE '%${name_EN}%' group by staff.name_CN
+		</if>
+	</select>
+    <select id="StaffDetails" parameterType = "java.lang.Integer" resultType = "cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.no = #{no}
+	</select>				
+</mapper>

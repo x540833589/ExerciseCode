@@ -1,0 +1,50 @@
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #d12323;
+}
+
+.personInfoLeader {
+	position: relative;
+	margin-left: 455px;
+	width: 300px;
+	height: 200px;
+	float: left;
+}
+
+.personInfoMember {
+	margin-left: 15px;
+	position: relative;
+	width: 400px;
+	height: 200px;
+	float: left;
+}
+
+.leader {
+	padding-left: 0%;
+	padding-top: 25px;
+	height: 175px;
+}
+
+.member {
+	padding-left: 25px;
+	padding-top: 25px;
+	height: 175px;
+}
+
+.photo {
+	float: left; 
+	height: 150px; 
+	width: 120px;
+}
+
+.left {
+	position: absolute;
+	float: left;
+}
+
+.right {
+	position: absolute;
+	float: right;
+}

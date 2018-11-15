@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+body { 
+	font:12px/19px Arial, Helvetica, sans-serif; 
+	color:#000000;
+}  
+
+.block { 
+	width: 450px; 
+	display: block; 
+}
+
+.center { 
+	text-align: center; 
+}
+
+label { 
+	font-size: small;
+	float:left;
+	width:11em;
+	margin-right:1em;
+	text-align:right; 
+} 
+
+input {
+	text-indent:4px;
+}
+
+.out{
+	height:100%;
+	width:100%;	
+}
+
+.mydiv{
+	position:absolute;
+}
+
+.block .inputtt {
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+}
+
+.ts {
+	height: 18px;
+	width: 18.5px;
+}
+
+.tserror {
+	height: 18px;
+	width: 18.5px;
+}
+
+#yulan {
+	float: left;
+	margin-right: 250px;
+}

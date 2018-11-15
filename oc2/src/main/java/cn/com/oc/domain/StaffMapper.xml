@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StaffMapper">
+	<insert id = "newStaff" parameterType="cn.com.oc.domain.Staff">
+		INSERT INTO staff
+			(no , name_CN , name_EN , deptID , positionID , isHead , email , isActive , photo , structureDistribution)
+		VALUES
+			(#{no} , #{name_CN} , #{name_EN} , #{deptID} , #{positionID} , #{isHead} , #{email} , #{isActive} , #{photo} , #{structureDistribution})
+	</insert>
+	      <update id="updateStaff" parameterType="cn.com.oc.domain.Staff">  <!-- 修改员工信息 -->
+            UPDATE staff
+            <set>
+                <if test="name_CN !=null and name_CN !=''">name_CN = #{name_CN},</if>
+                <if test="name_EN !=null and name_EN !=''">name_EN = #{name_EN},</if>
+                <if test="deptID !=null and deptID !=''">deptId = #{deptID},</if>
+                <if test="positionID != null and positionID !=''">positionID = #{positionID},</if>
+                <if test="isHead !=null and isHead !=''">isHead = #{isHead},</if>
+                <if test="email !=null and email !=''">email = #{email},</if>
+                <if test="isActive !=null and isActive !=''">isActive = #{isActive},</if>
+                <if test="photo !=null and photo !=''">photo = #{photo},</if>
+                <if test="structureDistribution !=null and structureDistribution !=0">structureDistribution = #{structureDistribution}</if>
+            </set>
+              WHERE no = #{no}
+      </update>
+      <select id = "getNewStaffNo" resultType = "java.lang.Integer">
+      		SELECT MAX(no)+1
+      		FROM staff
+      		WHERE no NOT LIKE '9___'
+      </select>
+      <select id="getNewStaffInfo" resultType="cn.com.oc.vo.StaffDetail">
+	      	SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID , 
+				   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+				   position.position_CN , position.position_EN 
+			FROM department , staff , position
+			WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.no NOT LIKE '9___' and staff.no = (select max(no) from staff where no NOT LIKE '9___')
+      </select>
+      <select id="checkPositionIsActiveStatus" parameterType="cn.com.oc.dto.DepartmentPositionInfo" resultType="cn.com.oc.vo.StaffDetail">
+	      	SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID , 
+				   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+				   position.position_CN , position.position_EN 
+			FROM department , staff , position
+			WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.deptID = #{deptID} AND staff.positionID = #{positionID} AND staff.isActive = 1
+      </select>
+      <select id="getPhotoPathByNo" parameterType="java.lang.Integer" resultType="java.lang.String">
+      		select photo from staff where no = #{no}
+      </select>
+</mapper>

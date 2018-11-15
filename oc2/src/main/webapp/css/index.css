@@ -1,0 +1,22 @@
+@charset "UTF-8";
+div>span{
+	line-height: 25px;
+	font-size: 13px;
+	
+}
+
+div>span>span>span{
+	
+	font-size: 13px;
+}
+
+a{
+	color: #000;
+}
+a:hover {
+	text-decoration: none;	
+	color: #000;
+}
+#structure {
+	margin-top:0px;
+}

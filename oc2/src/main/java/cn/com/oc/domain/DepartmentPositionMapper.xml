@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DepartmentPositionMapper">
+   <select id="checkDepartmentPosition" parameterType="cn.com.oc.dto.DepartmentPositionInfo" resultType="cn.com.oc.dto.DepartmentPositionInfo">
+   		select * from position_department where deptID = #{deptID} AND positionID = #{positionID}
+   </select>
+   <select id="checkParentDepartmentPosition" parameterType="cn.com.oc.dto.DepartmentPositionInfo" resultType="cn.com.oc.dto.DepartmentPositionInfo">
+   		select * from position_department where deptID in (select upOneLevel from department where deptID = #{deptID}) AND positionID = #{positionID}
+   </select>
+   <insert id="insertParentDepartmentPosition" parameterType="cn.com.oc.dto.DepartmentPositionInfo">
+   		insert into position_department (deptID , positionID) values ((select upOneLevel from department where deptID = #{deptID}) , #{positionID})
+   </insert>
+   <insert id="insertDepartmentPosition" parameterType="cn.com.oc.dto.DepartmentPositionInfo">
+   		insert into position_department (deptID , positionID) values (#{deptID} , #{positionID})
+   </insert>
+   <insert id="updateDepartmentPosition" parameterType="cn.com.oc.dto.DepartmentPositionInfo">
+   		insert into position_department (deptID , positionID) values (#{deptID} , #{positionID})
+   </insert>
+</mapper>

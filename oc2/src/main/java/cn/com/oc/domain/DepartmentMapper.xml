@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DepartmentMapper">
+   <insert id="addDepartment" parameterType="cn.com.oc.domain.Department">
+   	INSERT INTO department
+   		(deptID , upOneLevel , department_CN , department_EN , bu_Head , deptLevel)
+   	VALUES
+   		(#{deptID} , #{upOneLevel} , #{department_CN} , #{department_EN} , #{bu_Head} , #{deptLevel})
+   </insert>
+  <select id="getFirstLevelDepartment" resultType="cn.com.oc.domain.Department">
+   		select *
+   		from department
+   		where deptLevel = 1
+   </select>
+   <select id="getChildrenDepartment" parameterType="java.lang.String" resultType="cn.com.oc.domain.Department">
+   		select *
+   		from department
+   		where upOneLevel = #{deptID}
+   </select>
+   <select id="getDepartmentByDeptID" parameterType="java.lang.String" resultType="cn.com.oc.domain.Department">
+   		select * from department where deptID = #{deptID}
+   </select>
+   <select id="getAllSuperiorDepartment" resultType="cn.com.oc.domain.Department">
+   		select * from department where deptLevel = 1 or deptLevel = 2
+   </select>
+   <update id="updateChildNumByUpOneLevel" parameterType="java.lang.String">
+   		update department set childNum = childNum + 1 where deptID = #{upOneLevel}
+   </update>
+   
+   <insert id="addNewPosition" parameterType="cn.com.oc.domain.Position">
+   		insert into position (position_CN , position_EN , isHeadStatus , structureDistribution) values (#{position_CN} , #{position_EN} , #{isHeadStatus} , #{structureDistribution})
+   </insert>
+   <select id="getNewestPosition" resultType="cn.com.oc.domain.Position">
+   		select * from position where no in (select max(no) from position)
+   </select>
+   <select id="getAllExistedDepartment" resultType="cn.com.oc.domain.Department">
+   		select * from department
+   </select>
+</mapper>

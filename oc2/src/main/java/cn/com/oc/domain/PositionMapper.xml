@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PositionMapper">
+    <select id="getAllPositionByDeptID" parameterType="java.lang.String" resultType="cn.com.oc.domain.Position">
+        select * 
+        from position
+        where no in (select positionID from position_department where deptID LIKE '%${_parameter}%' group by positionID)
+ 	</select>
+ 	<select id="checkHeadStatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+ 		select isHeadStatus from position where no = #{positionID}
+ 	</select>
+ 	<select id="getPositionByPositionId" parameterType="java.lang.Integer" resultType="cn.com.oc.domain.Position">
+ 		select * from position where no = #{positionID}
+ 	</select>
+ 	<select id="getAllExistedPosition" resultType="cn.com.oc.domain.Position">
+ 		select * from position
+ 	</select>
+ 	<select id="getAllSharedPosition" resultType="cn.com.oc.domain.Position">
+ 		select * from position where structureDistribution = 0
+ 	</select>
+ 	<insert id="addNewPosition" parameterType="cn.com.oc.domain.Position">
+ 		insert into position (position_CN , position_EN , isHeadStatus , structureDistribution) 
+ 				    values (#{position_CN} , #{position_EN} , #{isHeadStatus} , #{structureDistribution})
+ 	</insert>
+ 	<select id="getNewestPositionID" resultType="java.lang.Integer">
+ 		select max(no) from position
+ 	</select>
+</mapper>

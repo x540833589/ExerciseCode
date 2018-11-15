@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body { 
+	font: 12px/19px Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #000000;
+}
+
+/* td .yeee{
+	vertical-align: middle;
+    text-align: center;  
+} */
+
+.inputtt {
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+}
+
+.inputttt {
+	border: 1px solid #ccc;
+  	border-radius: 4px;
+}

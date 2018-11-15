@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StructureMapper">
+	<!-- 每层级的leader -->
+	<select id="getStructureLeaderByStructureDistributionID" parameterType = "java.lang.String" resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID , 
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.structureDistribution = #{structureDistributionID} AND staff.isActive = 1<!--  AND staff.deptID = #{deptID} AND staff.isHead = 1 -->
+	</select>
+	<!-- 每层的member -->
+	<select id="getStructureMemberByStructureDistribution" parameterType = "java.lang.String" resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.structureDistribution LIKE #{structureDistribution} AND staff.isActive = 1<!--  AND staff.deptID = #{deptID} AND staff.isHead = 1 -->
+	</select>
+	
+	<select id="getSpecialStructureLeader"  resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.childDeptID = 'D5300'
+	</select>
+	
+	<select id="getSpecialStructureMember"  resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND staff.deptID = 'D5300'
+	</select>
+	<select id="getFirstLevelDepartment" resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN 
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no AND deptLevel = 1	AND isHead= 1 group by deptID
+	</select>
+	<!-- get everything -->
+	<select id="getEverything" resultType="cn.com.oc.vo.StaffDetail">
+		SELECT staff.no , staff.name_CN , staff.name_EN , staff.positionID , staff.isHead , staff.email , staff.isActive , staff.photo , staff.structureDistribution , staff.childDeptID ,
+			   department.deptID , department.department_CN , department.department_EN , department.childNum , department.bu_Head , department.upOneLevel , department.deptLevel ,
+			   position.position_CN , position.position_EN , position.isHeadStatus
+		FROM department , staff , position
+		WHERE staff.deptID = department.deptID AND staff.positionID = position.no
+	</select>
+	<select id="getAllDetail" resultType="cn.com.oc.domain.Department">
+		SELECT * FROM Department
+	</select>
+	
+</mapper>
