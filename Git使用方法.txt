@@ -9,6 +9,7 @@ git 上传步骤：
 1 -- 登陆 GitHub 创建一个远端仓库并拷贝其https地址(或ssh地址)
 2 -- 在本地创建一个文件夹作为本地仓库，将项目源码文件夹拷贝到本地仓库(项目源码文件夹中若存在 .git 后缀的文件夹请先删除)
 3 -- 在本地仓库中右键 Git Bash 进入命令行
+  // 如果是第一次安装Git进入 Git Bash 窗口需要设置 $ git config  --global user.name <你的用户名> 和 $ git config --global user.email <你的邮箱>
 4 -- $ git init     //初始化本地仓库（该命令执行完毕本地仓库会出现一个 .git 文件夹）
 5 -- $ git add .    //添加本地仓库所有代码（注意末尾有个点）
 6 -- $ git commit -m "这里输入相关提交信息"    //将本地仓库中所有代码刷入暂存工作区
